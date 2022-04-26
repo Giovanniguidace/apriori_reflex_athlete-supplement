@@ -57,6 +57,7 @@ def apriori_2(itemset, bd, min_sup, min_conf):
                              'support': sup, \
                              'confidence': 1})
     ass_rules[0] = prune(ass_rules[0], min_sup, min_conf)
+
     ass_rules.append([])  # level 2 (2 items association)
     for item_1 in ass_rules[0]:
         for item_2 in ass_rules[0]:
@@ -69,8 +70,6 @@ def apriori_2(itemset, bd, min_sup, min_conf):
                 ass_rules[1].append({'rule': rule, \
                                      'support': sup, \
                                      'confidence': conf})
-    ass_rules[1] = prune(ass_rules[1], min_sup, min_conf)
-
     return ass_rules
 
 # print(apriori_2(itemset, transactions_bd, 0.1, 0.1))

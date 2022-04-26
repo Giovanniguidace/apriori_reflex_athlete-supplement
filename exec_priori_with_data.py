@@ -53,7 +53,7 @@ items_by_transaction = pd.Series(items_id)
 
 itemset = formatItemSet(data_apriori)
 
-rules = apriori_2(itemset, items_by_transaction, 0.8, 0.7)
+rules = apriori_2(itemset, items_by_transaction, 0.78, 0.5)
 
 # Products in Stock Message
 print("Tip: Our products in stock is: ", itemsInStock(data_apriori))
@@ -63,6 +63,7 @@ composite_rule = []
 getRuleCollection().drop()
 
 for rule in rules[1]:
+
 
     percept = rule['rule'].split('==>')[0].replace(" ", "")
     action = rule['rule'].split('==>')[1].replace(" ", "")

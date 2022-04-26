@@ -7,9 +7,12 @@ inferences = []
 for composite_rule in composite_rules:
     rules = []
     rule = composite_rule['rules']
+
     r = Rule(rule['relation'], rule['percept_ref'], rule['percept_name'], rule['action'])
     rules.append(r)
+
     inferences.append(Inference(rules, composite_rule['operators'], rule['action']))
+
 
 item = input("What supplements did you buy? \n")
 percepts = [{"supplement": "'" + item + "'" }]
